@@ -1,0 +1,385 @@
+/* ---------------------------------------------------------------------------------------------- Подключение шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap');
+
+/* ------------------------------------------------------------------------------------------------- Обнуляющие стили */
+@import "nullstyle";
+
+/* ================================================================================================================== */
+/* ------------------------------------------------------------------------------------------------------------- body */
+body {
+    font-family: Rubik, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 18px;
+    color: #f2f2ff;
+    background-color: #000626;
+    @media (max-width: 767.98px) {
+        &.lock {
+            overflow: hidden;
+        }
+    }
+}
+/* ================================================================================================================== */
+/* ------------------------------------------------------------------------------------------------------ __container */
+[class*="__container"] {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+/* ================================================================================================================== */
+/* -------------------------------------------------------------------------------------------------------- Компьютер */
+@media (max-width: 1200px) {
+    [class*="__container"] {
+        max-width: 970px;
+    }
+}
+/* ---------------------------------------------------------------------------------------------------------- Планшет */
+@media (max-width: 991.98px) {
+    [class*="__container"] {
+        max-width: 750px;
+    }
+}
+/* -------------------------------------------------------------------------------------------------------- Мобильник */
+@media (max-width: 767.98px) {
+    [class*="__container"] {
+        max-width: none;
+    }
+}
+/* ================================================================================================================== */
+/* ---------------------------------------------------------------------------------------------------------- wrapper */
+.wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+/* ================================================================================================================== */
+/* ----------------------------------------------------------------------------------------------------------- header */
+.header {
+    background-color: #040b3c;
+    @media (max-width: 767.98px) {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 50;
+    }
+    &__container {}
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        height: 118px;
+        align-items: center;
+    }
+    &__logo {
+        flex: 0 0 171px;
+        position: relative;
+        z-index: 2;
+        img {
+            max-width: 100%;
+        }
+    }
+    /* ----------------------------------------------------------------------------------------------------- ↓ бургер */
+    &__burger {
+        display: none;
+        @media (max-width: 767.98px) {
+            display: block;
+            position: relative;
+            z-index: 2;
+            width: 30px;
+            height: 20px;
+            &::before,
+            &::after {
+                content: '';
+                background-color: #fff;
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                left: 0;
+                transition: all 0.3s ease 0s;
+            }
+            &::before {
+                top: 0;
+            }
+            &::after {
+                bottom: 0;
+            }
+            span {
+                position: absolute;
+                top: 9px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: #fff;
+                transition: all 0.3s ease 0s;
+            }
+            &.active {
+                &::before {
+                    transform: rotate(45deg);
+                    top: 9px;
+                }
+                &::after {
+                    transform: rotate(-45deg);
+                    bottom: 9px;
+                }
+                span {
+                    transform: scale(0);
+                }
+            }
+        }
+    }
+    /* ----------------------------------------------------------------------------------------------------- ↑ бургер */
+    &__menu {
+        @media (max-width: 767.98px) {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #000626;
+            z-index: 1;
+            padding: 150px 15px 0 15px;
+            transition: all 0.3s ease 0s;
+            overflow: auto;
+            &.active {
+                left: 0;
+            }
+        }
+    }
+    &__list {
+        display: flex;
+        @media (max-width: 767.98px) {
+            display: block;
+        }
+        li {
+            margin: 0 0 0 50px;
+            @media (max-width: 991.98px) {
+                margin: 0 0 0 30px;
+            }
+            @media (max-width: 767.98px) {
+                margin: 0 0 50px 0;
+            }
+        }
+    }
+    &__link {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 121.43%;
+        color: #f2f2ff;
+        span {
+            color: #f6255a;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+        &_reg {
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #f6255a;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        @media (max-width: 767.98px) {
+            font-size: 24px;
+        }
+    }
+}
+/* ================================================================================================================== */
+/* ------------------------------------------------------------------------------------------------------------- main */
+.main {
+    flex: 1 1 auto;
+}
+/* ================================================================================================================== */
+/* -------------------------------------------------------------------------------------------------------- nfst-2021 */
+.nfst-2021 {
+    padding: 172px 0 86px 0;
+    &__container {
+        position: relative;
+    }
+    &__block-text {}
+    &__element {
+        position: absolute;
+        top: -92px;
+        left: 15px;
+    }
+    @media (max-width: 767.98px) {
+        padding-top: 250px;
+    }
+    @media (max-width: 320px) {
+        padding: 124px 0 40px 0;
+    }
+}
+/* ------------------------------------------------------------------------------------------------------- block-text */
+.block-text {
+    position: relative;
+    &__title {
+        font-weight: 900;
+        font-size: 120px;
+        line-height: 118.3%;
+        &:not(:last-child) {
+            margin: 0 0 59px 0;
+        }
+        @media (max-width: 320px) {
+            font-size: 42px;
+        }
+    }
+    &__subtitle {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 116.6%;
+        max-width: 500px;
+        &:not(:last-child) {
+            margin: 0 0 21px 0;
+        }
+        @media (max-width: 320px) {
+            font-size: 20px;
+        }
+    }
+    &__text {
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 116.6%;
+        &:not(:last-child) {
+            margin: 0 0 55px 0;
+        }
+        @media (max-width: 320px) {
+            font-size: 20px;
+        }
+    }
+    &__data {
+        display: flex;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 119.4%;
+        &:not(:last-child) {
+            margin: 0 0 57px 0;
+        }
+        @media (max-width: 320px) {
+            font-size: 24px;
+        }
+    }
+    &__month {
+        margin: 0 24px 0 0;
+        position: relative;
+        &::after {
+            content: "";
+            display: inline-block;
+            width: 3px;
+            height: 48px;
+            background-color: #f6255a;
+            position: absolute;
+            right: -26px;
+            @media (max-width: 320px) {
+                height: 30px;
+            }
+        }
+        @media (max-width: 320px) {
+            margin: 0 16px 0 0;
+        }
+    }
+    &__time {
+        margin: 0 0 0 35px;
+        @media (max-width: 320px) {
+            margin: 0 0 0 8px;
+        }
+    }
+    &__button {}
+}
+/* ----------------------------------------------------------------------------------------------------------- button */
+.button {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 116.6%;
+    color: #f2f2ff;
+    text-transform: uppercase;
+    background-color: #f6255a;
+    padding: 21px 47px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease 0s;
+    &:hover {
+        background-color: #7b1640;
+    }
+    @media (max-width: 320px) {
+        font-size: 14px;
+    }
+}
+/* ================================================================================================================== */
+/* ------------------------------------------------------------------------------------------------------- who-useful */
+.who-useful {
+    padding: 97px 0 0 0;
+    &__container {}
+    &__title {
+        margin: 0 0 63px 0;
+        @media (max-width: 320px) {
+            margin: 0 0 40px 0;
+        }
+    }
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        @media (max-width: 767.98px) {
+            flex-direction: column;
+        }
+    }
+    &__item-body {
+        flex: 0 1 50%;
+        margin: 0 0 29px 0;
+        padding: 0 15px;
+    }
+    &__item {
+        position: relative;
+        padding: 32px 10px 32px 60px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 200%;
+        border: 3px solid #333c72;
+        border-radius: 8px;
+        transition: border 0.3s ease 0s;
+        span {
+            font-weight: 700;
+        }
+        &::before {
+            content: '';
+            background: url("../../img/check.svg") 0 0 no-repeat;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 38px;
+            left: 23px;
+            @media (max-width: 320px) {
+                top: 22px;
+                left: 23px;
+            }
+        }
+        &:hover {
+            border: 3px solid #f6255a;
+        }
+        @media (max-width: 320px) {
+            font-size: 14px;
+            line-height: 140%;
+            padding: 20px 10px 20px 60px;
+        }
+    }
+    @media (max-width: 320px) {
+        padding: 40px 0 0 0;
+    }
+}
+/* ------------------------------------------------------------------------------------------------------------ title */
+.title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 200%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    @media (max-width: 320px) {
+        font-size: 24px;
+        line-height: 140%;
+        letter-spacing: 0.03em;
+    }
+}
+/* ================================================================================================================== */
+/* ----------------------------------------------------------------------------------------------------------- footer */
+.footer {}
+/* ================================================================================================================== */
